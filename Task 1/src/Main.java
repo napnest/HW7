@@ -29,20 +29,17 @@ public class Main {
         boolean forbiddenElixir = ghoulTearsCount>=5 && dumplingsCount>=10 && toadEyesCount>=4
                 && ravenBonesCount>=3;
 
-        if(elixirOfVigilance){
-            System.out.println("Вы можете приготовить Эликсир зоркости");
-        }
-        if(elixirOfEndurance){
-            System.out.println("Вы можете приготовить Эликсир стойкости");
-        }
-        if(elixirOfSecrecy){
-            System.out.println("Вы можете приготовить Эликсир скрытности");
-        }
-        if(forbiddenElixir){
-            System.out.println("Вы можете приготовить Запретный эликсир");
-        }
-        if(!elixirOfVigilance && !elixirOfEndurance && !elixirOfSecrecy && !forbiddenElixir){
-            System.out.println("У Вас не хватает ингридиентов ни на один эликсир");
+        boolean info = elixirOfVigilance || elixirOfEndurance || elixirOfSecrecy || forbiddenElixir;
+        if(info) {
+            while (info) {
+                System.out.println("Вы можете приготовить Эликсир зоркости: " + elixirOfVigilance);
+                System.out.println("Вы можете приготовить Эликсир стойкости: " + elixirOfEndurance);
+                System.out.println("Вы можете приготовить Эликсир скрытности: " + elixirOfSecrecy);
+                System.out.println("Вы можете приготовить Запретный эликсир: " + forbiddenElixir);
+                info = false;
+            }
+        }else{
+            System.out.println("Вы не можете приготовить ни одного зелья!");
         }
 
     }
